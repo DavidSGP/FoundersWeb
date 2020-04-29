@@ -114,21 +114,21 @@ public class TouchManager : MonoBehaviour
                     currentButton = hit.collider.gameObject;
                 //currentButtonTag = hit.collider.tag;
                 cursor.color = detectButtonColor;
-                    cursorTransform.position = Vector3.Lerp(centerEye.position, hit.point, 0.7f);
+                    //cursorTransform.position = Vector3.Lerp(centerEye.position, hit.point, 0.7f);
 
                 }
                 else
                 {
                     cursor.color = initialColor;
                     currentButton = null;
-                    cursorTransform.localPosition = startPos;
+                    //cursorTransform.localPosition = startPos;
                 }
             }
             else
             {
                 cursor.color = initialColor;
                 currentButton = null;
-                cursorTransform.localPosition = startPos;
+                //cursorTransform.localPosition = startPos;
             }
 
             if (Physics.Raycast(centerEye.position, cursorTransformL.position - centerEye.position, out hit, 30))
@@ -139,20 +139,20 @@ public class TouchManager : MonoBehaviour
                     currentButtonL = hit.collider.gameObject;
                 //currentButtonTag = hit.collider.tag;
                 cursorL.color = detectButtonColor;
-                    cursorTransformL.position = Vector3.Lerp(centerEye.position, hit.point, 0.7f);
+                    //cursorTransformL.position = Vector3.Lerp(centerEye.position, hit.point, 0.7f);
                 }
                 else
                 {
                 //cursorL.color = initialColor;
                     currentButtonL = null;
-                    cursorTransformL.localPosition = startPosL;
+                    //cursorTransformL.localPosition = startPosL;
                 }
             }
             else
             {
                 cursorL.color = initialColor;
                 currentButtonL = null;
-                cursorTransformL.localPosition = startPosL;
+                //cursorTransformL.localPosition = startPosL;
             }
 
         
