@@ -105,8 +105,8 @@ public class AudioManager : MonoBehaviour
 
         selectPanel.SetActive(true);
         interviewPanel.SetActive(false);
-        GameObject[] g = GameObject.FindGameObjectsWithTag("Head");
-        Transform head = g[0].transform;
+        GameObject g = GameObject.FindGameObjectWithTag("Head");
+        Transform head = g.transform;
             
         /*head.position = new Vector3(0f, 0f, -0.775f);
         head.rotation = Quaternion.identity;*/
@@ -140,8 +140,8 @@ public class AudioManager : MonoBehaviour
 #if UNITY_WEBGL && !UNITY_EDITOR
          Microphone.Update();
 #endif
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            Application.Quit();
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            SceneManager.LoadScene("IntroScene");
             return;
         }
 

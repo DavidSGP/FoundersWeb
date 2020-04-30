@@ -14,6 +14,7 @@ public class InstructionsManager : MonoBehaviour
     [SerializeField] private Image circleLoader;
     [SerializeField] private TextMeshProUGUI progressText;
     [SerializeField] private Transform head;
+    [SerializeField] private GameObject camera;
 
     [SerializeField] private TextMeshProUGUI volumesText;
 
@@ -40,13 +41,16 @@ public class InstructionsManager : MonoBehaviour
         }
 
         GameObject[] g = GameObject.FindGameObjectsWithTag("Head");
+        Debug.Log(g.Length);
         if (g.Length == 1)
         {
+            //g[0].SetActive(true);
             g[0].GetComponent<TouchManager>().isFirst = true;
+            g[0].GetComponent<TouchManager>().currentButtonTag = "InstructionsButton";
         }
         else
         {
-            for (int i = 0; i < g.Length; i++)
+            /*for (int i = 0; i < g.Length; i++)
             {
                 if (!g[i].GetComponent<TouchManager>().isFirst)
                 {
@@ -54,10 +58,16 @@ public class InstructionsManager : MonoBehaviour
                 }
                 else {
                     head = g[i].transform;
+                    g[i].GetComponent<TouchManager>().currentButtonTag = "InstructionsButton";
                 }
-            }
-        }
+            }*/
 
+            GameObject c = Instantiate(camera) as GameObject;
+            c.GetComponent<TouchManager>().isFirst = true;
+            c.GetComponent<TouchManager>().currentButtonTag = "InstructionsButton";
+
+        }
+        
 
         /*head.position = new Vector3(-4.739f, 0f, -0.775f);
         head.rotation = Quaternion.Euler(new Vector3(0,90,0));
